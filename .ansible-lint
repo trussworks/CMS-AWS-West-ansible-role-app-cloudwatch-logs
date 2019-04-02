@@ -2,4 +2,4 @@
 skip_list:
   - '204'
 exclude_paths:
-  - molecule/default/
+  - ./molecule/default/
