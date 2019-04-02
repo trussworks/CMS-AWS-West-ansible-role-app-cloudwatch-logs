@@ -1,0 +1,5 @@
+---
+# defaults file for app-cloudwatch-logs
+stream_name: "{{ ansible_ec2_instance_id }}"
+group_prefix: "/aws/ec2"
+awslogs_daemon: "awslogsd"

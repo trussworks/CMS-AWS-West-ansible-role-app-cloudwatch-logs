@@ -1,0 +1,35 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: ec2
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    image: ami-0b22acd1331b34ddf
+    instance_type: t2.micro
+    vpc_subnet_id: subnet-01dc954a
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
+scenario:
+  name: default
+  test_sequence:
+    - lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    # Editing this out -- the dependent module breaks this :(
+    # - idempotence
+    - side_effect
+    - verify
+    - destroy

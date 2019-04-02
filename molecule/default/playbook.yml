@@ -1,0 +1,16 @@
+---
+- name: Converge
+  hosts: all
+  become: yes
+  roles:
+    - role: ansible-role-aws-cloudwatch-logs-agent
+      vars:
+        logs:
+          - file: /var/log/test
+            group_name: "/aws/ec2/var/log/test"
+    - role: CMS-AWS-West-ansible-role-app-cloudwatch-logs
+      vars:
+        app:
+          name: test-app
+          logs:
+            - file: /var/log/test_app.log
