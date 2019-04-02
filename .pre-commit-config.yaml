@@ -1,0 +1,30 @@
+---
+repos:
+  - repo: git://github.com/pre-commit/pre-commit-hooks
+    rev: v2.1.0
+    hooks:
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: trailing-whitespace
+
+  - repo: git://github.com/igorshubovych/markdownlint-cli
+    rev: v0.13.0
+    hooks:
+      - id: markdownlint
+
+  - repo: git://github.com/detailyang/pre-commit-shell
+    rev: 1.0.4
+    hooks:
+      - id: shell-lint
+
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: v4.1.0
+    hooks:
+      - id: ansible-lint
+        types: [yaml]

@@ -1,0 +1,12 @@
+# This is an included log file for the {{ app.name }} application; for more
+# details on the format of this file, see the main config file.
+
+{% for log in app.logs|list %}
+[{{ log.file }}]
+{% if log.format is defined %}
+datetime_format = {{ log.format }}
+{% endif %}
+file = {{ log.file }}
+log_group_name = {{ group_prefix }}{{ log.file }}
+log_stream_name = {{ log.stream_name | default(stream_name) }}
+{% endfor %}

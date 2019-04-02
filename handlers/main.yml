@@ -1,0 +1,6 @@
+---
+# handlers file for app-cloudwatch-logs
+- name: "restart awslogs"
+  service:
+    name: "{{ awslogs_daemon }}"
+    state: restarted
