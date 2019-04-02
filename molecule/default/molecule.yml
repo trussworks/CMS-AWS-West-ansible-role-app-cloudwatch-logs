@@ -29,7 +29,7 @@ scenario:
     - prepare
     - converge
     # Editing this out -- the dependent module breaks this :(
-    # - idempotence
+    - idempotence
     - side_effect
     - verify
     - destroy
